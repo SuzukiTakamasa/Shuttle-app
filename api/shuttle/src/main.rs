@@ -31,6 +31,8 @@ async fn actix_web(
     .await
     .map_err(CustomError::new)?;
 
+    let pool = actix_web::web::Data::new(pool);
+
     let config = move |cfg: &mut ServiceConfig| {
         cfg.app_data(pool)
            .service(hello_world)
