@@ -3,8 +3,11 @@
 ```Service Name:  keshigomi```
 ```https://keshigomi.shuttleapp.rs```
 
-When starting the local server, make sure that Docker is running, and run the following command
+When starting the local server, make sure that Docker is running, and run the following command:
 ```cargo shuttle run```
 
-When update the source code, run the following command and deploy to Shuttle.
+When update the source code, run the following command and deploy to Shuttle:
 ```cargo shuttle deploy```
+
+If restarting the backend automatically when making some modifications, run the following command:
+```cargo watch -x "shuttle run"```
