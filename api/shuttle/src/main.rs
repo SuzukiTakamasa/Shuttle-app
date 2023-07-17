@@ -32,7 +32,8 @@ async fn actix_web(
     .map_err(CustomError::new)?;
 
     let config = move |cfg: &mut ServiceConfig| {
-        cfg.service(hello_world)
+        cfg.app_data(pool)
+           .service(hello_world)
            .service(version);
     };
 
