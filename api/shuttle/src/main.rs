@@ -1,8 +1,8 @@
-use actix_web::{get, web::ServiceConfig};
+use actix_web::web::ServiceConfig;
 use shuttle_actix_web::ShuttleActixWeb;
 use shuttle_runtime::CustomError;
 use sqlx::Executor;
-use api_lib::health::{hello_world, version};
+use api_lib::health::health;
 
 #[shuttle_runtime::main]
 async fn actix_web(
@@ -18,8 +18,7 @@ async fn actix_web(
 
     let config = move |cfg: &mut ServiceConfig| {
         cfg.app_data(pool)
-           .service(hello_world)
-           .service(version);
+           .service(health);
     };
 
     Ok(config.into())
