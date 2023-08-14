@@ -2,7 +2,7 @@ use actix_web::{
     web::{self, ServiceConfig},
     HttpResponse};
 
-const API_VERSION: &str = "0.0.1";
+pub const API_VERSION: &str = "v0.0.1";
 
 pub fn service(cfg: &mut ServiceConfig) {
     cfg.route("/health", web::get().to(health));

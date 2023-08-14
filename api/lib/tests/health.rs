@@ -1,5 +1,5 @@
 use actix_web::{http::StatusCode, App};
-use api_lib::health::service;
+use api_lib::health::{service, API_VERSION};
 
 #[actix_rt::test]
 async fn health_check_works() {
@@ -14,5 +14,5 @@ async fn health_check_works() {
     assert!(res.status().is_success());
     assert_eq!(res.status(), StatusCode::OK);
     let data = res.headers().get("version").and_then(|h| h.to_str().ok());
-    assert_eq!(data, Some("0.0.1"));
+    assert_eq!(data, Some(API_VERSION));
 }
