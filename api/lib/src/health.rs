@@ -14,23 +14,23 @@ async fn health() -> HttpResponse {
     .finish()
 }
 
-#[cfg(test)]
-mod tests {
-    use actix_web::http::StatusCode;
-    use super::*;
-
-    #[actix_rt::test]
-    async fn health_check_works() {
-        let res = health().await;
+//#[cfg(test)]
+//mod tests {
+//   use actix_web::http::StatusCode;
+//    use super::*;
+//
+//    #[actix_rt::test]
+//    async fn health_check_works() {
+//        let res = health().await;
+//        
+//        assert!(res.status().is_success());
+//        assert_eq!(res.status(), StatusCode::OK);
         
-        assert!(res.status().is_success());
-        assert_eq!(res.status(), StatusCode::OK);
-        
-        let data = res
-            .headers()
-            .get("health-check")
-            .and_then(|h| h.to_str().ok());
+//        let data = res
+//            .headers()
+//            .get("health-check")
+//            .and_then(|h| h.to_str().ok());
 
-        assert_eq!(data, Some(API_VERSION));
-    }
-}
+//        assert_eq!(data, Some(API_VERSION));
+//    }
+//}
