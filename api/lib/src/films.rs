@@ -1,4 +1,3 @@
-pub mod films;
 
 use actix_web::{
     web::{self, ServiceConfig},
@@ -16,7 +15,7 @@ pub fn service(cfg: &mut ServiceConfig) {
     );
 }
 
-async fn get_all() -> HttpRespose {
+async fn get_all() -> HttpResponse {
     HttpResponse::Ok().finish()
 }
 
