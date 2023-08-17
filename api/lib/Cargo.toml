@@ -13,8 +13,8 @@ serde = "1.0"
 serde_json = "1.0"
 async-trait = "0.1"
 uuid = { version = "1.3", features = ["serde", "v4", "js"] }
-shared = { path = "../../shared" }
+shared = { path = "../../shared", features = ["backend"] }
 
 [dev-dependencies]
 actix-rt = "2.0.0"
-shared = { path = "../../shared" }
+shared = { path = "../../shared", features = ["backend"] }
